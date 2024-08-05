@@ -16,13 +16,19 @@ enum MyPlayerAcoreString
 class MyPlayer : public PlayerScript
 {
 public:
-    MyPlayer() : PlayerScript("MyPlayer") { }
+    MyPlayer() : PlayerScript("MyPlayer") {}
 
-    void OnLogin(Player* player) override
+    void OnLogin(Player *player) override
     {
+        ChatHandler(player->GetSession()).PSendSysMessage("OnLogin called");
+
         if (sConfigMgr->GetOption<bool>("MyModule.Enable", false))
         {
             ChatHandler(player->GetSession()).PSendSysMessage("Hello, world!");
+        }
+        else
+        {
+            ChatHandler(player->GetSession()).PSendSysMessage("<error> MyModule.Enable is false or not set");
         }
     }
 };
