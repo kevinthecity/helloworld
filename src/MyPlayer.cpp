@@ -22,6 +22,7 @@ public:
     {
         ChatHandler(player->GetSession()).PSendSysMessage("OnLogin called");
 
+
         if (sConfigMgr->GetOption<bool>("MyModule.Enable", false))
         {
             ChatHandler(player->GetSession()).PSendSysMessage("Hello, world!");
