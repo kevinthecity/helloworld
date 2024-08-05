@@ -22,7 +22,7 @@ public:
     {
         if (sConfigMgr->GetOption<bool>("MyModule.Enable", false))
         {
-            ChatHandler(player->GetSession()).PSendSysMessage(HELLO_WORLD);
+            ChatHandler(player->GetSession()).PSendSysMessage("Hello, world!");
         }
     }
 };
